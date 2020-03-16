@@ -44,6 +44,7 @@ public class OrderItem_Page {
 		}
 		Assert.assertTrue("purchase details not related to account details", result);
 		driver.findElement(By.xpath("/html/body/div[10]/div[7]/div/button")).click();
+	
 
 	}
 

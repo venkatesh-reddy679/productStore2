@@ -35,7 +35,7 @@ public class Contact_Page {
 			Assert.assertTrue(valid);
 		}
 		driver.switchTo().alert().accept();
-		;
+		
 	}
 
 	public void cancel() {

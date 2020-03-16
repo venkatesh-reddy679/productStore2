@@ -37,7 +37,8 @@ public class OrderItem_TestCase extends WrapperClass {
 		 public void order() throws InterruptedException {
 		orderItem_Page.purchase("venkateswara reddy", "India", "Chennai", "123456789", "jan", "2025");
 		orderItem_Page.verify("venkateswara reddy");
-
+		click_logOut();
+        quit();
 	}
 	
 	//  trying to purchase without  any items
@@ -65,6 +66,8 @@ public class OrderItem_TestCase extends WrapperClass {
 		 public void order1() throws InterruptedException {
 		orderItem_Page.purchase("venkateswara reddy", "India", "Chennai", "123456789", "jan", "2025");
 		orderItem_Page.verify("0 USD");
+		click_logOut();
+		quit();
 
 	}
 	

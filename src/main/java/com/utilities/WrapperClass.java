@@ -16,7 +16,7 @@ public class WrapperClass {
 		
 		if (browser.equalsIgnoreCase("chrome")) {
 
-			System.setProperty("webdriver.chrome.driver", "D:\\chromedriver.exe");
+			System.setProperty("webdriver.chrome.driver", ".\\driver\\chromedriver.exe");
 			driver = new ChromeDriver();
 			driver.get(url);
 			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);

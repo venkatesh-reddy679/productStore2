@@ -14,7 +14,7 @@ public class Excel_Login_Data {
 	//To read and return username
 	public  String excel_username(int a) throws IOException {
 		  
-		  FileInputStream fil = new FileInputStream(new File(".\\src\\test\\resources\\excel_login_data\\Excel_Login_Data.xlsx"));
+		  FileInputStream fil = new FileInputStream(new File("C:\\Users\\DELL\\git\\product-store\\src\\test\\resources\\excel_login_data\\Excel_Login_Data.xlsx"));
 		  XSSFWorkbook workbook = new XSSFWorkbook(fil);
 		  XSSFSheet sheet=workbook.getSheet("Sheet1");
 		  int count=sheet.getLastRowNum();
@@ -30,7 +30,7 @@ public class Excel_Login_Data {
 	//TO read and return password
 	public  String excel_password(int b) throws IOException {
 		  
-		  FileInputStream fil = new FileInputStream(new File(".\\src\\test\\resources\\excel_login_data\\Excel_Login_Data.xlsx"));
+		  FileInputStream fil = new FileInputStream(new File("C:\\Users\\DELL\\git\\product-store\\src\\test\\resources\\excel_login_data\\Excel_Login_Data.xlsx"));
 		  XSSFWorkbook workbook = new XSSFWorkbook(fil);
 		  XSSFSheet sheet=workbook.getSheet("Sheet1");
 		  int count=sheet.getLastRowNum();

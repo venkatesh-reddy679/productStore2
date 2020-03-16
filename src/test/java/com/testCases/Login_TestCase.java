@@ -15,14 +15,13 @@ import cucumber.api.java.en.When;
 
 public class Login_TestCase extends WrapperClass {
 	Login_Page login_Page;
-
+	Excel_Login_Data data = new Excel_Login_Data();
 	@Given("^the user launch the chrome application$")
 	public void beforeEach() {
 		launchBrowser("chrome", "https://www.demoblaze.com");
 		login_Page = new Login_Page(driver);
 	}
-
-	// valid login
+	/////////valid login.......................................................................
 
 	@When("^the user open the ProductStore Home page$")
 	public void login() {
@@ -33,9 +32,9 @@ public class Login_TestCase extends WrapperClass {
 	public void enter_Details() throws IOException, InterruptedException {
 		Excel_Login_Data data = new Excel_Login_Data();
 		login_Page.userid("naveen");
-		// read the username from excelsheet
+		
 		login_Page.pass("naveen");
-		// read the password from excelsheet
+		
 
 	}
 
@@ -43,10 +42,13 @@ public class Login_TestCase extends WrapperClass {
 	public void click_LogIn() throws InterruptedException {
 		login_Page.log_in();
 		login_Page.verify_Account("Welcome naveen");
+		Thread.sleep(3000);
+		click_logOut();
+		quit();
 		
 	}
 
-	// Invalid login
+//////// Invalid login.....................................................................
 
 	@Given("^if user launch the chrome application and$")
 	public void beforeEach1() {
@@ -54,8 +56,8 @@ public class Login_TestCase extends WrapperClass {
 		login_Page = new Login_Page(driver);
 	}
 
-	@When("^if user open the ProductStore Home page  and$")
-	public void login2() {
+	@When("^if user open the ProductStore Home page and$")
+	public void login1() {
 		login_Page.click_LogIn();
 	}
 
@@ -77,5 +79,92 @@ public class Login_TestCase extends WrapperClass {
 		quit();
 
 	}
+	
+	
+	///////////////////////login without details..................................
 
+	@Given("^when user launches the chrome application and$")
+	public void beforeEach2() {
+		launchBrowser("chrome", "https://www.demoblaze.com");
+		login_Page = new Login_Page(driver);
+	} 
+	@When("^when user opens the ProductStore Home page and$")
+	public void login2() throws InterruptedException{
+		login_Page.click_LogIn();
+		Thread.sleep(2000);
+		login_Page.log_in();
+	}
+
+	
+	@Then("^by clicking on the login button user  should not nagivate to the next page$")
+	public void click_LogIn2() throws InterruptedException {
+		
+		Thread.sleep(2000);
+		login_Page.invalid_verify("Please fill out Username and Password.");
+		quit();
+		
+	}
+	//////////////////////login with username.........................................
+
+	@Given("^when user launches the chrome application then$")
+	public void beforeEach3() {
+		launchBrowser("chrome", "https://www.demoblaze.com");
+		login_Page = new Login_Page(driver);
+	}
+
+	@When("^when user opens the ProductStore Home page then$")
+	public void login3() {
+		login_Page.click_LogIn();
+	}
+
+	@Then("^by entering only username and clicking login button$")
+	public void enter_Details3() throws IOException, InterruptedException {
+
+		Excel_Login_Data data = new Excel_Login_Data();
+
+		login_Page.userid("naveen");
+		
+		login_Page.pass("");
+		
+		login_Page.log_in();
+	}
+
+	@Then("^user  should not nagivate to the next page$")
+	public void click_LogIn3() throws InterruptedException {
+		
+		login_Page.invalid_verify("Please fill out Username and Password.");
+		quit();
+
+	}
+	/////// login with password .....................................................
+	
+	@Given("^if user launches the chrome application then$")
+	public void beforeEach4() {
+		launchBrowser("chrome", "https://www.demoblaze.com");
+		login_Page = new Login_Page(driver);
+	}
+
+	@When("^if user opens the ProductStore Home page then$")
+	public void login4() {
+		login_Page.click_LogIn();
+	}
+
+	@Then("^by entering only password and clicking login button$")
+	public void enter_Details4() throws IOException, InterruptedException {
+
+		Excel_Login_Data data = new Excel_Login_Data();
+
+		login_Page.userid("");
+		
+		login_Page.pass("naveen");
+		
+		login_Page.log_in();
+	}
+
+	@Then("^user  should not nagivate to the next page,should remain in same page$")
+	public void click_LogIn4() throws InterruptedException {
+		
+		login_Page.invalid_verify("Please fill out Username and Password.");
+		quit();
+	}
 }

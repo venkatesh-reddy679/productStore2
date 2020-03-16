@@ -21,7 +21,7 @@ public class Login_Page {
 	WebElement password;
 	@FindBy(xpath = "//button[contains(text(),'Log in')]")
 	WebElement login1;
-	@FindBy(xpath="//*[@id=\"nameofuser\"]")
+	@FindBy(xpath = "//*[@id=\"nameofuser\"]")
 	WebElement verify;
 
 	public Login_Page(WebDriver driver) {
@@ -48,19 +48,22 @@ public class Login_Page {
 //click the login button
 	public void log_in() throws InterruptedException {
 		login1.click();
-		Thread.sleep(5000);
+		Thread.sleep(2000);
 	}
-	
-	public void verify_Account(String text) {
-		String name=verify.getText();
+
+	public void verify_Account(String text) throws InterruptedException {
+		Thread.sleep(2000);
+		 String name = verify.getText();
 		Assert.assertEquals(name, text);
 		System.out.println(name);
-		
+
 	}
-	public void invalid_verify(String text) {
-		String visible_Text=driver.switchTo().alert().getText();
+
+	public void invalid_verify(String text) throws InterruptedException {
+		Thread.sleep(2000);
+		String visible_Text = driver.switchTo().alert().getText();
 		Assert.assertEquals(visible_Text, text);
 		driver.switchTo().alert().accept();
-		
+
 	}
 }
