@@ -12,14 +12,14 @@ import cucumber.api.java.en.When;
 public class Cart_TestCase extends com.utilities.WrapperClass {
 	Cart_Page cart_Page;
 
-	@Given("^if the user launch the website and login$")
-	public void cart_Test() throws InterruptedException {
+	@Given("^if the user launch the website and login with (.+) and (.+)$")
+	public void cart_Test(String username,String password) throws InterruptedException {
 		launchBrowser("chrome", "https://www.demoblaze.com");
 		cart_Page = new Cart_Page(driver);
 		Login_Page login_Page = new Login_Page(driver);
 		login_Page.click_LogIn();
-		login_Page.userid("naveen");
-		login_Page.pass("naveen");
+		login_Page.userid(username);
+		login_Page.pass(password);
 		login_Page.log_in();
 
 	}
@@ -50,14 +50,14 @@ public class Cart_TestCase extends com.utilities.WrapperClass {
 
 	/// add all the phones to cart..................................................
 
-	@Given("^if the website is launched  and  login$")
-	public void cart_Test1() throws InterruptedException {
+	@Given("^if the website is launched  and  login with (.+) , (.+)$")
+	public void cart_Test1(String username,String password) throws InterruptedException {
 		launchBrowser("chrome", "https://www.demoblaze.com");
 		cart_Page = new Cart_Page(driver);
 		Login_Page login_Page = new Login_Page(driver);
 		login_Page.click_LogIn();
-		login_Page.userid("15121036");
-		login_Page.pass("15121036");
+		login_Page.userid(username);
+		login_Page.pass(password);
 		login_Page.log_in();
 
 	}
@@ -76,60 +76,5 @@ public class Cart_TestCase extends com.utilities.WrapperClass {
 		click_logOut();
 		quit();
 	}
-	//// add all laptops to cart..........................................................
 	
-	@Given("^if the website is launched , login$")
-	public void cart_Test2() throws InterruptedException {
-		launchBrowser("chrome", "https://www.demoblaze.com");
-		cart_Page = new Cart_Page(driver);
-		Login_Page login_Page = new Login_Page(driver);
-		login_Page.click_LogIn();
-		login_Page.userid("844872");
-		login_Page.pass("844872");
-		login_Page.log_in();
-
-	}
-
-	@When("^the user adds all laptops$")
-	public void add2() throws InterruptedException {
-		Thread.sleep(2000);
-		cart_Page.all_Laptop();
-	}
-
-	@Then("^click on cart and check all the laptops are added or not$")
-	public void check2() throws InterruptedException {
-		click_Cart();
-		Thread.sleep(2000);
-		cart_Page.count_Item();
-		click_logOut();
-		quit();
-}
-	/////addign all monitors to cart
-	
-	@Given("^if the website is launched , login then$")
-	public void cart_Test3() throws InterruptedException {
-		launchBrowser("chrome", "https://www.demoblaze.com");
-		cart_Page = new Cart_Page(driver);
-		Login_Page login_Page = new Login_Page(driver);
-		login_Page.click_LogIn();
-		login_Page.userid("venkatesh.reddy679");
-		login_Page.pass("venkatesh.reddy679");
-		login_Page.log_in();
-
-	}
-
-	@When("^the user adds all monitors$")
-	public void add3() throws InterruptedException {
-		Thread.sleep(2000);
-		cart_Page.all_Monitor();
-	}
-
-	@Then("^click on cart and check all the monitors are added or not$")
-	public void check3() throws InterruptedException {
-		click_Cart();
-		Thread.sleep(2000);
-		cart_Page.count_Item();
-		click_logOut();
-		quit();
-}
 }

@@ -24,10 +24,10 @@ public class SignUp_TestCase extends WrapperClass {
 		click_signUp();
 	}
 
-	@Then("^the user enters username and password$")
-	public void enter_Details() {
-		signUp_Page.userName("Venkateswara reddy10");
-		signUp_Page.password("venkateswara reddy");
+	@Then("^the user enters (.+) and (.+)$")
+	public void enter_Details(String username,String password) {
+		signUp_Page.userName(username);
+		signUp_Page.password(password);
 
 	}
 
@@ -51,10 +51,10 @@ public class SignUp_TestCase extends WrapperClass {
 		click_signUp();
 	}
 
-	@Then("^the user enters username,password ,duplicate$")
-	public void enter_Details1() {
-		signUp_Page.userName("Venkateswara reddy8");
-		signUp_Page.password("venkateswara reddy");
+	@Then("^the user enters (.+),(.+) ,duplicate$")
+	public void enter_Details1(String username,String password) {
+		signUp_Page.userName(username);
+		signUp_Page.password(password);
 
 
 	}
@@ -66,23 +66,6 @@ public class SignUp_TestCase extends WrapperClass {
 		quit();
 	}
 
-	//// without any details..................................................................
-	@Given("^by launching the chrome and website$")
-	public void start2() {
-		launchBrowser("chrome", "https://www.demoblaze.com/");
-		signUp_Page = new SignUp_Page(driver);
-	}
-
-	@When("^by clicking on signup link$")
-	public void click_SingUp2() throws InterruptedException {
-		click_signUp();
-	}
-
-	@Then("^without entering username,password,click signup button$")
-	public void submit2() throws InterruptedException {
-		signUp_Page.signup("Please fill out Username and Password.");
-		Thread.sleep(2000);
-		quit();
-	}
+	
 
 }

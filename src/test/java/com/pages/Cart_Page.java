@@ -45,24 +45,7 @@ public class Cart_Page extends 	WrapperClass {
 	@FindBy(linkText = "HTC One M9")
 	WebElement htc;
 	//////////////////////////////////////////////////////////////////////
-	@FindBy(linkText = "Sony vaio i5")
-	WebElement sonyi5;
-	@FindBy(linkText = "Sony vaio i7")
-	WebElement sonyi7;
-	@FindBy(linkText = "MacBook air")
-	WebElement mac;
-	@FindBy(linkText = "Dell i7 8gb")
-	WebElement dell;
-	@FindBy(linkText = "2017 Dell 15.6 Inch")
-	WebElement dell2017;
-	@FindBy(linkText = "MacBook Pro")
-	WebElement macPro;
-	////////////////////////////////////////////////////////////////////
-	@FindBy(linkText = "Apple monitor 24")
-	WebElement apple;
-	@FindBy(linkText = "ASUS Full HD")
-	WebElement asus;
-	/////////////////////////////////////////////////////////////////////
+
 
 	public Cart_Page(WebDriver driver) {
 		PageFactory.initElements(driver, this);
@@ -167,82 +150,6 @@ public class Cart_Page extends 	WrapperClass {
 		
 		 
 		 }
-	public void all_Laptop() throws InterruptedException {
-		click_Laptop.click();
-		Thread.sleep(2000);
-		List<WebElement> noOfLaptops = driver.findElements(By.className("hrefch"));
-		int size = noOfLaptops.size();
-		 System.out.println("no of laptops present:"+size);
-		 sonyi5.click();
-		 Thread.sleep(1000);
-		 add_Cart2.click();
-		 Thread.sleep(2000);
-		 driver.switchTo().alert().accept();
-		 click_Home();
-		 
-		 click_Laptop.click();
-		 sonyi7.click();
-		 Thread.sleep(1000);
-		 add_Cart2.click();
-		 Thread.sleep(2000);
-		 driver.switchTo().alert().accept();
-		 click_Home();
-		 
-		 click_Laptop.click();
-		 mac.click();
-		 Thread.sleep(1000);
-		 add_Cart2.click();
-		 Thread.sleep(2000);
-		 driver.switchTo().alert().accept();
-		 click_Home();
-		 
-		 click_Laptop.click();
-		 dell.click();
-		 Thread.sleep(1000);
-		 add_Cart2.click();
-		 Thread.sleep(2000);
-		 driver.switchTo().alert().accept();
-		 click_Home();
-		 
-		 click_Laptop.click();
-		 dell2017.click();
-		 Thread.sleep(1000);
-		 add_Cart2.click();
-		 Thread.sleep(2000);
-		 driver.switchTo().alert().accept();
-		 click_Home();
-		 
-		 click_Laptop.click();
-		 macPro.click();
-		 Thread.sleep(1000);
-		 add_Cart2.click();
-		 Thread.sleep(2000);
-		 driver.switchTo().alert().accept();
-		
-		
-	}
 	
-	public void all_Monitor() throws InterruptedException {
-		click_Monitor.click();
-		Thread.sleep(2000);
-		List<WebElement> noOfMonitors = driver.findElements(By.className("hrefch"));
-		int size = noOfMonitors.size();
-		 System.out.println("no of monitors present:"+size);
-		 apple.click();
-		 Thread.sleep(1000);
-		 add_Cart3.click();
-		 Thread.sleep(2000);
-		 driver.switchTo().alert().accept();
-		 click_Home();
-		 
-		 click_Monitor.click();
-		 asus.click();
-		 Thread.sleep(1000);
-		 add_Cart3.click();
-		 Thread.sleep(2000);
-		 driver.switchTo().alert().accept();
-		
-		
-	}
 
 }
